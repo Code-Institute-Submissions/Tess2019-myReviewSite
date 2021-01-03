@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+        <h2>extending base template</h2>
+
+{% block content %}
+    {% for boardgame in boardgames %}
+        {{ boardgames.category_name}}
+    {% endfor %}
+
+{% endblock %}
