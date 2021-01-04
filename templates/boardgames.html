@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>boardgames manager</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
+
+    <h2>extending base template</h2>
+
     {% for boardgame in boardgames %} 
         {{ boardgame.category_name }}
-
     {% endfor %}
-</body>
-</html>
+
+{% endblock %}
