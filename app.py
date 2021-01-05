@@ -25,6 +25,7 @@ def get_boardgames():
     boardgames = mongo.db.boardgames.find()
     return render_template("boardgames.html", boardgames=boardgames)
 
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     return render_template("register.html")
