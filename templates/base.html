@@ -17,11 +17,11 @@
         <nav class= "nav-extended lime darken-3">
             <div class="nav-wrapper">
             <a href="{{ url_for('get_boardgames') }}" class="brand-logo">Boardgames</a> <!-- url_for render the main page-->
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
             <ul class="right hide-on-med-and-down">
                 <!--link all to its specific extend file-->
                 <li><a href="{{ url_for('get_boardgames') }}">Home</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a href="#">About</a></li>
                 <li><a href="#">Categories</a></li>
                 <li><a href="#">Log In</a></li>
                 <li><a href="#">Log Out</a></li>
@@ -34,7 +34,7 @@
         <!--for the mobile collapsible menu, paste in jquery in script.js  -->
         <ul class="sidenav" id="mobile-demo">
                 <li><a href="{{ url_for('get_boardgames') }}">Home</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a href="#">About</a></li>
                 <li><a href="#">Categories</a></li>
                 <li><a href="#">Log in</a></li>
                 <li><a href="#">Log Out</a></li>
