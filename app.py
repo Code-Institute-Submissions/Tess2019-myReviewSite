@@ -41,7 +41,7 @@ def register():
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
-             # if wanted dubblecheck password put it here, check werkzeug for more info
+            # want dubblecheck password, check werkzeug for info
         }
         mongo.db.users.insert_one(register)
 
@@ -50,7 +50,8 @@ def register():
         flash("Register successful!")
         return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html")
-        # after clicked on button the page reload and the new user register in mongodb
+    # after page reload the new user register in mongodb
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -63,20 +64,20 @@ def login():
         if existing_user:
             # find a match password of user input in db, werkzeug hash
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    # use cookies, session varible
-                    session["user"] = request.form.get("username").lower()
+                    existing_user["password"], request.form.get("password")):
                     # make user a validation of succsessful login
-                    flash("Welcome, {}".format(request.form.get("username")))
-                    return redirect(url_for(
-                        "profile", username=session["user"]))
+                        session["user"] = request.form.get("username").lower()
+                        flash("Welcome, {}".format(
+                            request.form.get("username")))
+                        return redirect(url_for(
+                            "profile", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
 
         else:
-             # username do not exist redirect to login
+            # username do not exist redirect to login
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
 
@@ -86,10 +87,25 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # find the users's username in db with session
+    # do not need all info like password etc, definie username in brackets
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-        # no not need all info like password, definie username in brackets 
-    return render_template("profile.html", username=username)
+
+    # if session user cookie is true
+    if session["user"]:
+        return render_template("profile.html", username=username)
+
+    return redirect(url_for("login"))
+
+
+# to not manually delete user session cookie on logging out create a log out
+@app.route("/logout")
+def logout():
+    flash("You have been logged out")
+    # specify the user to remove session
+    session.pop("user")
+    return redirect(url_for("login"))
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
