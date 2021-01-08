@@ -48,6 +48,7 @@ def register():
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Register successful!")
+        return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html")
         # after clicked on button the page reload and the new user register in mongodb
 
@@ -58,7 +59,7 @@ def login():
         # the username input in lowercase method
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-        
+
         if existing_user:
             # find a match password of user input in db, werkzeug hash
             if check_password_hash(
@@ -67,18 +68,28 @@ def login():
                     session["user"] = request.form.get("username").lower()
                     # make user a validation of succsessful login
                     flash("Welcome, {}".format(request.form.get("username")))
+                    return redirect(url_for(
+                        "profile", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
 
         else:
-             # if username do not exist
+             # username do not exist redirect to login
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
 
     return render_template("login.html")
 
+
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(username):
+    # find the users's username in db with session
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+        # no not need all info like password, definie username in brackets 
+    return render_template("profile.html", username=username)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
