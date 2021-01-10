@@ -1,5 +1,5 @@
 import os
-import json 
+ 
 from flask import(
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -19,16 +19,11 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-# check if it works
 @app.route("/")
 @app.route("/get_boardgames")
 def get_boardgames():
-    data = []
-    with open("data/gamelist.json", "r") as json_data:
-        data = json.load(json_data)
-    boardgames = mongo.db.boardgames.find()
-    return render_template("boardgames.html",
-    boardgames=boardgames, gamelist=data)
+    boardgame = mongo.db.boardgames.find()
+    return render_template("boardgames.html", boardgames=boardgame)
 
 
 @app.route("/register", methods=["GET", "POST"])
