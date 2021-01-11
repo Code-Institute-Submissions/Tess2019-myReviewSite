@@ -1,3 +1,19 @@
+html{
+    font-family: Georgia, 'Times New Roman', Times, serif; 
+}
+
 flashes h4 {
     line-height: 2;
+}
+.card .card-image .card-title{
+    background-color: linen;
+    color:darkolivegreen;
+    font-weight: bold;
+}
+.card .card-image img {
+  background-color: none;  
+  border-color: none;
+  align-content: center;
+  padding: 40px;
+  
 }
