@@ -6,7 +6,7 @@ flashes h4 {
     line-height: 2;
 }
 .card .card-image .card-title{
-    background-color: linen;
+    background-color:none;
     font-weight: bold;
 }
 .card .card-image img {

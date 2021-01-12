@@ -86,8 +86,7 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    # find the users's username in db with session
-    # do not need all info like password etc, definie username in brackets
+    # find user info
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
@@ -98,13 +97,19 @@ def profile(username):
     return redirect(url_for("login"))
 
 
-# to not manually delete user session cookie on logging out create a log out
+# Log out
 @app.route("/logout")
 def logout():
     flash("You have been logged out")
-    # specify the user to remove session
+    # remove session
     session.pop("user")
     return redirect(url_for("login"))
+
+
+@app.route("/add_game")
+def add_game():
+    categories = mongo.db.categories.find()
+    return render_template("add_game.html", categories=categories)
 
 
 if __name__ == "__main__":
