@@ -1,19 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
 
-
-    <ul class="collapsible">
-        {% for game in add_game %}
-        <li>
-            <div class="collapsible-header">
-                <i class="fas fa-caret-down"></i>
-                <strong>{{game.category}}</strong>
+    <h3 class="center-align">Add Game</h3>
+   
+    <div class="row">
+        <form class="col s12" method="POST" action="">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-users prefix"></i>
+                    <input id="icon_prefix" type="text" class="validate">
+                    <label for="icon_prefix">How many players?</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="fas fa-dice prefix"></i>
+                    <input id="icon_dice" type="tel" class="validate">
+                    <label for="icon_dice">Gamename</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="fas fa-align-justify prefix"></i>
+                    <input id="icon_align-justify" type="tel" class="validate">
+                    <label for="icon_align-justify">Game description</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="fas fa-sticky-note prefix"></i>
+                    <input id="icon_sticky-note" type="tel" class="validate">
+                    <label for="icon_sticky-note">Your review about the game</label>
+                </div>
             </div>
-            <div class="collapsible-body">
-                <strong>{{game.category_name}}</strong>
-            </div>
-        </li>
-        {% endfor %}
-    </ul>
+        </form>
+    </div>
     
 {% endblock %}   
