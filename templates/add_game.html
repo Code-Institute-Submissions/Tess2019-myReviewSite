@@ -1,30 +1,39 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="center-align">Add Game</h3>
+    <h3 class="center-align">Add your Game</h3>
    
-    <div class="row">
+    <div class="row card-panel grey lighten-4">
         <form class="col s12" method="POST" action="">
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-users prefix"></i>
-                    <input id="icon_prefix" type="text" class="validate">
-                    <label for="icon_prefix">How many players?</label>
+                    <input id="category" type="text" class="validate">
+                    <label for="category">How many players?</label>
                 </div>
-                <div class="input-field col s12">
-                    <i class="fas fa-dice prefix"></i>
-                    <input id="icon_dice" type="tel" class="validate">
-                    <label for="icon_dice">Gamename</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-dice prefix"></i>
+                        <input id="category_name" name="category_name" minlength="2" maxlength="50"
+                        type="text" class="validate" required>
+                        <label for="category_name">Gamename</label>
+                    </div>
                 </div>
-                <div class="input-field col s12">
-                    <i class="fas fa-align-justify prefix"></i>
-                    <input id="icon_align-justify" type="tel" class="validate">
-                    <label for="icon_align-justify">Game description</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-pencil-alt prefix"></i>
+                        <textarea id="game_description" name="game_description" minlength="5"
+                        maxlength="200" class="materialize-textarea validate" required></textarea>
+                        <label for="game_description">Game description</label>
+                    </div>
                 </div>
-                <div class="input-field col s12">
-                    <i class="fas fa-sticky-note prefix"></i>
-                    <input id="icon_sticky-note" type="tel" class="validate">
-                    <label for="icon_sticky-note">Your review about the game</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-sticky-note prefix"></i>
+                        <textarea id="user_note" name="user_note" minlength="5"
+                        maxlength="100" class="materialize-textarea validate" required></textarea>
+                        <label for="user_note">Your review about the game</label>
+                    </div>
                 </div>
             </div>
         </form>
