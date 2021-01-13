@@ -108,7 +108,7 @@ def logout():
 
 @app.route("/add_game")
 def add_game():
-    game = mongo.db.add_game.find()
+    game = list(mongo.db.add_game.find())
     return render_template("add_game.html", add_game=game)
 
 
