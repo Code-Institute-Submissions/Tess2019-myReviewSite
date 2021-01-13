@@ -65,7 +65,7 @@ def login():
             # find a match password of user input in db, werkzeug hash
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
-                    # make user a validation of succsessful login
+                # make user a validation
                         session["user"] = request.form.get("username").lower()
                         flash("Welcome, {}".format(
                             request.form.get("username")))
@@ -108,8 +108,8 @@ def logout():
 
 @app.route("/add_game")
 def add_game():
-    categories = mongo.db.categories.find()
-    return render_template("add_game.html", categories=categories)
+    add_game = mongo.db.add_game.find()
+    return render_template("add_game.html", add_game=add_game)
 
 
 if __name__ == "__main__":
