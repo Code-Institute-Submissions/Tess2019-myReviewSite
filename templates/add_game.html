@@ -1,22 +1,9 @@
-<!DOCTYPE html>
 {% extends "base.html" %}
 {% block content %}
 
-    <h3> ADD GAME </h3>
-        <ul class="collapsible">
-            {%for add_game in add_games %}
-            <li>
-                <div class="collapsible-header">
-                    <i class="fas fa-caret-down"></i>
-                <strong>{{add_game.category}}</strong>
-                </div>
-                <div class="collapsible-body">
-                    <stong>{{ add_game.category_name}}</stong>
-                </div>
-            </li>
-            {% endfor %}
-        </ul>  
-
-
-{% endblock %}
-   
+    {% for game in add_game %}
+        {{game.category}}<br>
+        {{game.category_name}}<br>
+    {% endfor %}
+    
+{% endblock %}   
