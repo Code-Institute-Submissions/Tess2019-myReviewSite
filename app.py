@@ -106,6 +106,12 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.route("/member_list")
+def member_list():
+    game = mongo.db.add_game.find()
+    return render_template("member_list.html", add_game=game)
+
+
 @app.route("/add_game", methods=["GET", "POST"])
 def add_game():
     if request.method == "POST":
@@ -118,7 +124,7 @@ def add_game():
         }
         mongo.db.add_game.insert_one(game)
         flash("Game Succesfully Added")
-        return redirect(url_for("get_boardgames"))
+        return redirect(url_for("member_list"))
 
     game = list(mongo.db.add_game.find())
     return render_template("add_game.html", add_game=game)

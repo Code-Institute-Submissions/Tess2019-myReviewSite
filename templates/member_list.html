@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="container">
+            <h3 class="center-align">Members Game tips</h3>
+            {% for game in add_game %}
+                <strong>{{ game.category }}</strong>
+                <p>{{ game.category_name }}</p>
+                <p>{{ game.game_description }}</p>
+                <p>{{ game.user_note }}</p>
+                <p><em>by: {{ game.created_by}}</em></p>            
+            {% endfor%}
+    </div>
+
+{% endblock%}
