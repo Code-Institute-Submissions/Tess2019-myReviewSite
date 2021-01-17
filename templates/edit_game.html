@@ -18,7 +18,7 @@
                     <div class="input-field col s12">
                         <i class="fas fa-dice prefix"></i>
                         <input id="category_name" name="category_name" minlength="2" maxlength="50"
-                        type="text" class="validate" required>
+                        value="{{ game.category_name}}" type="text" class="validate" required>
                         <label for="category_name">Gamename</label>
                     </div>
                 </div>
@@ -27,7 +27,9 @@
                     <div class="input-field col s12">
                         <i class="fas fa-pencil-alt prefix"></i>
                         <textarea id="game_description" name="game_description" minlength="5"
-                        maxlength="200" class="materialize-textarea validate" required></textarea>
+                            maxlength="200" class="materialize-textarea validate" required>
+                            {{- game.game_description -}}
+                        </textarea> <!--use minus signs to take away white space -->
                         <label for="game_description">Game description</label>
                     </div>
                 </div>
@@ -43,6 +45,10 @@
                 <!--submit button-->
                 <div class="row">
                     <div class="col s12 center-align">
+                        <!--cancel button-->
+                        <a href="{{url_for('member_list')}}" class="btn-large red">
+                            Cancel <i class="fas fa-times-circle right"></i>
+                        </a> 
                        <button type="submit" class="btn-large orange accent-2">
                            Edit Game <i class="fas fa-edit right"></i>
                        </button> 
