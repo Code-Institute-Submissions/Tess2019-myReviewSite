@@ -145,6 +145,13 @@ def edit_game(game_id):
 
     game = mongo.db.add_game.find_one({"_id": ObjectId(game_id)})
     return render_template("edit_game.html", game=game, add_game=game)
+    
+
+@app.route("/delete_game/<game_id>")
+def delete_game(game_id):
+    mongo.db.add_game.remove({"_id": ObjectId(game_id)})
+    flash("Game is Deleted")
+    return redirect(url_for("add_game"))
 
 
 if __name__ == "__main__":
