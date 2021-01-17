@@ -1,6 +1,6 @@
 import os
 
-from flask import(
+from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
@@ -132,8 +132,18 @@ def add_game():
 
 @app.route("/edit_game/<game_id>", methods=["GET", "POST"])
 def edit_game(game_id):
+    if request.method == "POST":
+        submit = {
+            "category": request.form.get("category"),
+            "category_name": request.form.get("category_name"),
+            "game_description": request.form.get("game_description"),
+            "user_note": request.form.get("user_form"),
+            "created_by": session["user"]
+        }
+        mongo.db.add_game.update({"_id": ObjectId(game_id)}, submit)
+        flash("Game Content Updated")
+
     game = mongo.db.add_game.find_one({"_id": ObjectId(game_id)})
-    game = list(mongo.db.add_game.find())
     return render_template("edit_game.html", game=game, add_game=game)
 
 
