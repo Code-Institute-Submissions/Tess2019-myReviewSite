@@ -130,6 +130,13 @@ def add_game():
     return render_template("add_game.html", add_game=game)
 
 
+@app.route("/edit_game/<game_id>", methods=["GET", "POST"])
+def edit_game(game_id):
+    game = mongo.db.add_game.find_one({"_id": ObjectId(game_id)})
+    game = list(mongo.db.add_game.find())
+    return render_template("edit_game.html", game=game, add_game=game)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
