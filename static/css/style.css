@@ -5,6 +5,22 @@ html{
 flashes h4 {
     line-height: 2;
 }
+
+.nav-wrapper{
+    background-color: #117A65;
+}
+
+.row card-panel {
+    width: 200px;
+    display: flex;
+    align-items: right;
+}
+
+.card {
+    background-color:#B3B6B7;
+}
+
+
 .card .card-image .card-title{
     background-color:none;
     font-weight: bold;
