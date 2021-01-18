@@ -5,34 +5,53 @@
     <h2>Boardgames for Adults</h2>
     <p>Get an opportunity to connect with your significant other and a break from Netflix and other devices. You can of course invite your friends to for some of the games.
     We have summarized a guide in the search for the best two player board games adult games 2020
-    </p>   
+    </p>  
+    
+    
+    <div class="row card-panel grey lighten-5">
+        <form action="{{ url_for('search')}}" method="post" class="col s12">
+            <div class="row valign-wrapper center-align">
+                <div class="input-field col s12 m8">
+                    <i class="fas fa-search prefix light-blue-text"></i>
+                    <input type="text" name="query" id="query" minlength="2" class="validate" required>
+                    <label for="query">Search Game</label>
+                </div>
+                <div class="col s12 m8">
+                    <a href="{{ url_for('get_boardgames')}}" class="red btn text-shadow">Reset</a>
+                    <button type="submit" class="light-blue darken-1 btn text-shadow">
+                        <i class="fas fa-search left"></i>Search
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
 
-    {% for boardgame in boardgames %}
-          
-        <div class="row">
-            <div class="col s12 m7">
-                 <div class="card">
-                    <div class="card-image">
-                        <img src="{{ boardgame.image_source }}" alt="boardgame">
-                    </div>
-                        <span class="card-title">{{ boardgame.name }}</span>
-                        <div class="card-content">
-                            <p>
-                                {{ boardgame.description }}
-                            </p> 
+    {% if boardgames|length > 0 %}
+        {% for boardgame in boardgames %}
+            
+            <div class="row">
+                <div class="col s12 m7">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="{{ boardgame.image_source }}" alt="boardgame">
                         </div>
-                        <div class="card-action">
-                        <a href="{{ boardgame.link }}" target ="_blank">This is a link</a> <!--link to buy game page-->                       
+                            <span class="card-title">{{ boardgame.name }}</span>
+                            <div class="card-content">
+                                <p>
+                                    {{ boardgame.description }}
+                                </p> 
+                            </div>
+                            <div class="card-action">
+                            <a href="{{ boardgame.link }}" target ="_blank">This is a link</a> <!--link to buy game page-->                       
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-    {% endfor %}
-
-        <h4>Want read about more Games?</h4>
-        <h4>Check out the Members suggestions in the menu!</h4>
-    
+        {% endfor %}
+    {% else %}
+            <h3 class="red-text text-darken-4 center-align">Sorry, not found</h3>
+    {% endif %}
 
 {% endblock %}
 

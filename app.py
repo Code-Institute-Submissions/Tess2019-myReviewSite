@@ -22,8 +22,16 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_boardgames")
 def get_boardgames():
-    boardgame = mongo.db.boardgames.find()
+    boardgame = list(mongo.db.boardgames.find())
     return render_template("boardgames.html", boardgames=boardgame)
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    boardgame = list(mongo.db.boardgames.find({"$text": {"$search": query}}))
+    return render_template("boardgames.html", boardgames=boardgame)
+
 
 
 @app.route("/register", methods=["GET", "POST"])
