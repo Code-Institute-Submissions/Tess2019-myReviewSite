@@ -127,7 +127,7 @@ def add_game():
             "category": request.form.get("category"),
             "category_name": request.form.get("category_name"),
             "game_description": request.form.get("game_description"),
-            "user_note": request.form.get("user_form"),
+            "user_note": request.form.get("user_note"),
             "created_by": session["user"]
         }
         mongo.db.add_game.insert_one(game)
@@ -145,7 +145,7 @@ def edit_game(game_id):
             "category": request.form.get("category"),
             "category_name": request.form.get("category_name"),
             "game_description": request.form.get("game_description"),
-            "user_note": request.form.get("user_form"),
+            "user_note": request.form.get("user_note"),
             "created_by": session["user"]
         }
         mongo.db.add_game.update({"_id": ObjectId(game_id)}, submit)
