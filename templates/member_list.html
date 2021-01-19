@@ -3,12 +3,18 @@
 
     <div class="container">
         <h3 class="center-align">Members Game tips</h3>
+        <div class="card center-align">
             {% for game in add_game %}
-                <strong>{{ game.category }}</strong>
-                <p>{{ game.category_name }}</p>
-                <p>{{ game.game_description }}</p>
-                <p>{{ game.user_note }}</p>
-                <p><em>by:{{ game.created_by}}</em></p> 
+                <!--{{ game.category }} additional feature -->
+                <div class="divider"></div>
+                <div class="section">
+                    <h5>{{ game.category_name }}</h5>
+                    <h6>Description:</h6>
+                    <p>{{ game.game_description }}</p>
+                    <h6>My review:</h6>
+                    <p><q>{{ game.user_note }}</q></p>
+                    <p><em>by:{{ game.created_by}}</em></p> 
+                </div>
                 
                 <div class="row">
                     <div class="col s12 ">
@@ -21,6 +27,7 @@
                 </div>    
 
             {% endfor%}
+        </div>    
     </div>
 
 {% endblock%}

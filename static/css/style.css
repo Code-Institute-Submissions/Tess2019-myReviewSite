@@ -10,6 +10,10 @@ flashes h4 {
     background-color: #117A65;
 }
 
+.search btn text-shadow{
+    background-color: #38A18C;
+}
+
 .row card-panel {
     width: 200px;
     display: flex;
@@ -17,7 +21,7 @@ flashes h4 {
 }
 
 .card {
-    background-color:#B3B6B7;
+    background-color:#D6E0DE;
 }
 
 
@@ -29,9 +33,14 @@ flashes h4 {
   background-color: none;  
   border-color: none;
   align-content: center;
-  padding: 40px;
-  
+  padding: 40px; 
 }
+.card .card-action{
+    background-color: #117A65;
+    color: bisque;
+}
+
+
 .btn-small {
     margin:5px;
 }
