@@ -1,18 +1,36 @@
 {% extends "base.html" %}
 {% block content %}
 
-    
+        <div class="content"> 
+                <div class="card-panel">
+                    <!-- use curlybrackets to get username's name from app.py and db-->
+                    <h3 class="center-align teal-text">{{username}}'s Profile</h3>
+                    <i class="fas fa-user-circle large teal-text"></i>
+            
+                    {% for game in add_game %}
+                        <!--{{ game.category }} additional feature -->
+                        <div class="content"></div>
+                        <div class="section">
+                            <h5>{{ game.category_name }}</h5>
+                            <h6>Description:</h6>
+                            <p>{{ game.game_description }}</p>
+                            <h6>My review:</h6>
+                            <p><q>{{ game.user_note }}</q></p>
+                            <p><em>by:{{ game.created_by}}</em></p> 
+                        </div>
+                    
+                        <div class="row">
+                            <div class="col s12 ">
+                                <!--show edit button if logged in-->
+                                {% if session.user|lower == game.created_by|lower %}
+                                    <a href="{{url_for('delete_game', game_id=game._id)}}" class="btn-small red"> Delete</a>
+                                    <a href="{{url_for('edit_game', game_id=game._id)}}" class="btn-small"> Edit</a> 
+                                {% endif %}
+                            </div>
+                        </div>    
+                    {% endfor%}
+                </div>    
+            </div>    
+        </div>    
 
-    <div class="row">
-        <div class="col s12 m8 offset-m2"> 
-            <div class="card-panel">
-                <!-- use curlybrackets to get username's name from app.py and db-->
-                <h3 class="center-align teal-text">{{username}}'s Profile
-                <p> Now you can add your awsome game suggestion</p>
-                     <p>Just click in the Menu!</p>
-                </h3>     
-            </div>
-        </div>
-    </div>
-
-{% endblock %}
+{% endblock%}
