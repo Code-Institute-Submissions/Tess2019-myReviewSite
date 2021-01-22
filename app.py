@@ -89,7 +89,7 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/profile/username", methods=["GET", "POST"])
+@app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # find user info
     username = mongo.db.users.find_one(
@@ -97,7 +97,8 @@ def profile(username):
 
     # if session user cookie is true
     if session["user"]:
-        return render_template("profile.html", username=username)
+        game = list(mongo.db.add_game.find())
+        return render_template("profile.html", username=username, add_game=game)
 
     return redirect(url_for("login"))
 
@@ -113,7 +114,7 @@ def logout():
 
 @app.route("/member_list")
 def member_list():
-    game = mongo.db.add_game.find()
+    game = list(mongo.db.add_game.find())
     return render_template("member_list.html", add_game=game)
 
 
