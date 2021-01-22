@@ -2,30 +2,32 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h4>When it's just you two!</h4>
-    <div class=" row introduction">
-        <p>Get an opportunity to connect with your significant other and a break from Netflix and other devices. You can of course invite your friends to for some of the games.
+    <h4 class="center-align">When it's just you two!</h4>
+    <div class="container">
+        <div class="row introduction">
+            <p>Get an opportunity to connect with your significant other and a break from Netflix and other devices. You can of course invite your friends to for some of the games.
             The recommendations we've included below are some of the best two player games we found of 2020.
-        </p>
-    </div>  
+            </p>
+        </div>  
     
     
-    <div class="row card-panel grey lighten-5">
-        <form action="{{ url_for('search')}}" method="post" class="col s12">
-            <div class="row valign-wrapper center-align">
-                <div class="input-field col s12 m8">
-                    <i class="fas fa-search prefix teal-text"></i>
-                    <input type="text" name="query" id="query" minlength="2" class="validate" required>
-                    <label for="query">Search Game</label>
+    <div class="row ">
+            <form action="{{ url_for('search')}}" method="post" class="col s6 offset-s6">
+                <div class="row valign-wrapper center-align">
+                    <div class="input-field col s12 s8">
+                        <i class="fas fa-search prefix teal-text"></i>
+                        <input type="text" name="query" id="query" minlength="2" class="validate" required>
+                        <label for="query">Search Game</label>
+                    </div>
+                    <div class="col s12 m8">
+                        <!--<a href="{{ url_for('get_boardgames')}}" class="red btn text-shadow">Reset</a>--> 
+                        <button type="submit" class="teal btn-small text-shadow">
+                            <i class="fas fa-search left small"></i>Search
+                        </button>
+                    </div>
                 </div>
-                <div class="col s12 m8">
-                    <a href="{{ url_for('get_boardgames')}}" class="red btn text-shadow">Reset</a>
-                    <button type="submit" class="teal btn text-shadow">
-                        <i class="fas fa-search left"></i>Search
-                    </button>
-                </div>
-            </div>
-        </form>
+            </form>
+        
     </div>
 
     {% if boardgames|length > 0 %}
