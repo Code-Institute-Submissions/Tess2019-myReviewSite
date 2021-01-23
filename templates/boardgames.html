@@ -3,13 +3,14 @@
 {% block content %}
 
     <h4 class="center-align">When it's just you two!</h4>
-    <div class="container">
-        <div class="row introduction">
-            <p>Get an opportunity to connect with your significant other and a break from Netflix and other devices. You can of course invite your friends to for some of the games.
-            The recommendations we've included below are some of the best two player games we found of 2020.
+    <div class="container intro">
+        <div class="row introtext ">
+            <p>Get an opportunity to connect with your significant other and a break from Netflix and other devices. 
+            The recommendations we've included below are top of the best two player games we found of 2020.
+            If you have a boardgame you want to recommend, go ahead and register and write your own review. 
             </p>
         </div>  
-    
+    </div>
     
     <div class="row ">
             <form action="{{ url_for('search')}}" method="post" class="col s6 offset-s6">
@@ -34,7 +35,7 @@
         {% for boardgame in boardgames %}
             
             <div class="row">
-                <div class="col s12 m7">
+                <div class="col s12 m12">
                     <div class="card center-align">
                         <div class="card-image">
                             <img src="{{ boardgame.image_source }}" alt="boardgame">
@@ -51,12 +52,12 @@
                     </div>
                 </div>
             </div>
-
-        {% endfor %}
+        {% endfor %}  
     {% else %}
             <h3 class="red-text text-darken-4 center-align">Sorry, not found</h3>
     {% endif %}
-
+    <p class="center-align">Want more game tips?<br>Click on the Members suggestions in the top!</p>
+    <p class="center-align"><em>image credits: Amazon and ebay</em></p>
 {% endblock %}
 
 

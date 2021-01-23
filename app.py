@@ -112,6 +112,11 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+
 @app.route("/member_list")
 def member_list():
     game = list(mongo.db.add_game.find())

@@ -2,6 +2,15 @@ html{
     font-family: Georgia, 'Times New Roman', Times, serif; 
 }
 
+
+nav .brand-logo {
+    position: absolute;
+    color: #fff;
+    display: inline-block;
+    font-size: 2.1rem;
+    padding-left: 10px;
+}
+
 flashes h4 {
     line-height: 2;
 }
@@ -10,9 +19,10 @@ flashes h4 {
     background-color: #117A65;
 }
 
-.search btn text-shadow{
+.search text-shadow{
     background-color: #38A18C;
 }
+
 
 .row card-panel {
     width: 200px;
@@ -23,7 +33,6 @@ flashes h4 {
 .card {
     background-color:#D6E0DE;
 }
-
 
 .card .card-image .card-title{
     background-color:none;
@@ -43,4 +52,11 @@ flashes h4 {
 
 .btn-small {
     margin:5px;
+}
+
+footer{
+  margin:15px;  
+  padding:20px;
+  background-color: #117A65;
+  color:white;  
 }

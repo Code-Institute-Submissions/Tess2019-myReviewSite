@@ -2,17 +2,18 @@
 {% block content %}
 
     <div class="container">
-        <h3 class="center-align">Members Game tips</h3>
+        <h3 class="center-align">Members Game tips</h3><br>
+        <h6 class="center-align">Do you want others to read about your awesome game?<br>You are welcome to register and add it to the list!</h6>
         <div class="card center-align">
             {% for game in add_game %}
                 <!--{{ game.category }} additional feature -->
                 <div class="divider"></div>
-                <div class="section">
-                    <h5>{{ game.category_name }}</h5>
+                <div class="section.list">
+                    <h5><strong>{{ game.category_name }}</strong></h5>
                     <h6>Description:</h6>
                     <p>{{ game.game_description }}</p>
                     <h6>My review:</h6>
-                    <p><q>{{ game.user_note }}</q></p>
+                    <p><strong><q>{{ game.user_note }}</q></strong></p>
                     <p><em>by:{{ game.created_by}}</em></p> 
                 </div>
                 
