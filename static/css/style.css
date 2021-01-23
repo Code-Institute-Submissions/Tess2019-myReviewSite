@@ -1,5 +1,5 @@
 html{
-    font-family: Georgia, 'Times New Roman', Times, serif; 
+    font-family: 'Merriweather', serif 
 }
 
 
@@ -32,6 +32,7 @@ flashes h4 {
 
 .card {
     background-color:#D6E0DE;
+    padding:80px;
 }
 
 .card .card-image .card-title{
@@ -46,9 +47,16 @@ flashes h4 {
 }
 .card .card-action{
     background-color: #117A65;
-    color: bisque;
 }
 
+.card .card-content p{
+    border-radius: 0 0 2px 2px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 20px;
+    padding-top: 5px;
+    font-size: larger;
+}
 
 .btn-small {
     margin:5px;
