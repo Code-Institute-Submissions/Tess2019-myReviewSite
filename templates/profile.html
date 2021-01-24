@@ -1,23 +1,21 @@
 {% extends "base.html" %}
-{% block content %}
-
-            <div class="content"> 
-                
+{% block content %}               
                     <!-- use curlybrackets to get username's name from app.py and db-->
-                    <h3 class="center-align teal-text">{{username}}'s Profile</h3>
-                    <i class="fas fa-user-circle large teal-text"></i>
-                    <div class="content">
+                <h3 class="center-align teal-text">{{username}}'s Profile</h3>
+                  <!-- <i class="fas fa-user-circle large teal-text"></i> additional features-->
+                    <div class="content center-align card-quotes">
                         <div class="section">
                             {% for game in add_game %}
-                                {% if game.created_by == username %}
-                                    <h5>{{ game.category_name }}</h5>
-                                        <h6>Description:</h6>
-                                        <p>{{ game.game_description }}</p>
-                                        <h6>My review:</h6>
-                                        <p><q>{{ game.user_note }}</q></p>
-                                        <p><em>by:{{ game.created_by}}</em></p> 
-                                    </div>
-                                {% endif %}
+                            {% if game.created_by == username %}
+                            <div class="section.list member-list-img">
+                                <h5><b>{{ game.category_name }}</b></h5>
+                                <h6>Description:</h6>
+                                <p>{{ game.game_description }}</p>
+                                <h6>My review:</h6>
+                                <p><b><q>{{ game.user_note }}</q></b></p>
+                                <p><em>by:{{ game.created_by }}</em></p> 
+                            </div> 
+                            
                                 <div class="row">
                                     <div class="col s12 ">
                                         <!--show edit button if logged in-->
@@ -26,10 +24,12 @@
                                             <a href="{{url_for('edit_game', game_id=game._id)}}" class="btn-small"> Edit</a> 
                                         {% endif %}
                                     </div>
-                                </div>    
+                                </div>
+                            {% endif %}    
                             {% endfor %}
+                        </div>
                     </div>    
                            
-            </div>
+            
                         
 {% endblock %}

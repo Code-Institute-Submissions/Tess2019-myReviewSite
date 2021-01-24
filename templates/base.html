@@ -42,10 +42,8 @@
             <!--for the mobile collapsible menu from materialize, jquery in script.js  -->
             <ul class="sidenav" id="mobile-demo">
                 <li><a href="{{ url_for('get_boardgames') }}">Home</a></li>
-                <li><a href="{{ url_for('about') }}">About</a></li>
-                        
-                            <li><a href="{{ url_for('member_list') }}">members suggestions</a></li>
-                           
+                <li><a href="{{ url_for('about') }}">About</a></li>                      
+                            <li><a href="{{ url_for('member_list') }}">Members suggestions</a></li>                         
                     {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a href="{{ url_for('add_game') }}">Add your Game</a></li>
@@ -92,6 +90,6 @@
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     {% block scripts %} 
     {% endblock %}
-
+    
 </body>
 </html>

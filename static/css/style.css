@@ -1,11 +1,6 @@
 html{
-    font-family: 'Merriweather', serif 
+    font-family: 'Merriweather', serif; 
 }
- /*{
-  background-image: url('../images/hexagon.jpeg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}*/
 
 /*---------------Navbar------------------------------*/
 .nav-wrapper{
@@ -31,19 +26,23 @@ flashes h4 {
     background-color: #38A18C;
 }
 
-/*---------Card for the member list--------------------*/
+/*--------- boardgames --------------------*/
+.row-introtext{
+    font-size:16px ;
+}
+
 .row card-panel {
     width: 200px;
     display: flex;
     align-items: right;
 }
 
+
+/* ---------card-img for the boargames main page----------*/
 .card {
     background-color:#D6E0DE;
     padding:80px;
 }
-
-/* ---------card-img for the boargames main page----------*/
 .card .card-image .card-title{
     background-color:none;
     font-weight: bold;
@@ -73,13 +72,28 @@ flashes h4 {
 .btn-small {
     margin:5px;
 }
+/*----------for the member list--------------------------*/
+.member-list-img {
+   /* background-image:url('/static/images/hexagon.jpeg');
+    background-size: 115%; */
+
+    background-color:rgba(214, 224, 222, 0.6);
+    
+}
+
+.card-quotes {
+    background-image:url('/static/images/hexagon.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding:80px;
+}
 
 /* ------fixed footer modified from w3schools------*/
 .footer{
-  position:fixed;
+  display: flex;
   left:0;
-  bottom:0;
-  padding:6px;
+  padding-bottom: 16px;
+  padding-top: 16px;
   width: 100%;
   background-color: #117A65;
   color:white;  
