@@ -1,35 +1,33 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
 {% block content %}
-
-    <h4 class="center-align">When it's just the two you!</h4>
-    <div class="container intro">
-        <div class="row introtext ">
-            <p>Get an opportunity to connect with your significant other and a break from Netflix and other devices. 
-            The boardgames we've included below are top of the best two player games we found of 2020.<br>
-            If you have a boardgame you want to recommend, go ahead and register and write your own review. 
-            </p>
-        </div>  
-    </div>
+    <div style="background-image: url('/static/images/hexagon.jpeg');">
+        <h4 class="center-align">When it's just the two you!</h4>
+        <div class="container intro">
+            <div class="row introtext ">
+                <p>Get an opportunity to connect with your significant other and a break from Netflix and other devices. 
+                The boardgames we've included below are top of the best two player games we found of 2020.<br>
+                If you have a boardgame you want to recommend, go ahead and register and write your own review. 
+                </p>
+            </div>  
+        </div>
     
-    <div class="row ">
-            <form action="{{ url_for('search')}}" method="post" class="col s6 offset-s6">
-                <div class="row valign-wrapper center-align">
-                    <div class="input-field col s12 s8">
-                        <i class="fas fa-search prefix teal-text"></i>
-                        <input type="text" name="query" id="query" minlength="2" class="validate" required>
-                        <label for="query">Search Game</label>
+        <div class="row ">
+                <form action="{{ url_for('search')}}" method="post" class="col s6 offset-s6">
+                    <div class="row valign-wrapper center-align">
+                        <div class="input-field col s12 s8">
+                            <i class="fas fa-search prefix teal-text"></i>
+                            <input type="text" name="query" id="query" minlength="2" class="validate" required>
+                            <label for="query">Search Game</label>
+                        </div>
+                        <div class="col s12 m8">
+                            <button type="submit" class="teal btn-small text-shadow">
+                                <i class="fas fa-search left small"></i>Search
+                            </button>
+                        </div>
                     </div>
-                    <div class="col s12 m8">
-                        <!--<a href="{{ url_for('get_boardgames')}}" class="red btn text-shadow">Reset</a>--> 
-                        <button type="submit" class="teal btn-small text-shadow">
-                            <i class="fas fa-search left small"></i>Search
-                        </button>
-                    </div>
-                </div>
-            </form>
-        
-    </div>
+                </form>
+        </div>
 
     {% if boardgames|length > 0 %}
         {% for boardgame in boardgames %}
@@ -52,12 +50,13 @@
                     </div>
                 </div>
             </div>
-        {% endfor %}  
+        {% endfor %}
+    
     {% else %}
             <h3 class="red-text text-darken-4 center-align">Sorry, not found</h3>
     {% endif %}
     <p class="center-align">Want more game tips?<br>Click on the Members suggestions in the top!</p>
-    <p class="center-align"><em>image credits: Amazon and ebay</em></p>
+    </div> 
 {% endblock %}
 
 

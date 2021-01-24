@@ -1,7 +1,16 @@
 html{
     font-family: 'Merriweather', serif 
 }
+ /*{
+  background-image: url('../images/hexagon.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}*/
 
+/*---------------Navbar------------------------------*/
+.nav-wrapper{
+    background-color: #117A65;
+}
 
 nav .brand-logo {
     position: absolute;
@@ -11,19 +20,18 @@ nav .brand-logo {
     padding-left: 10px;
 }
 
+/*----------message when registration, login, logout, valid and invalid---*/
 flashes h4 {
     line-height: 2;
 }
 
-.nav-wrapper{
-    background-color: #117A65;
-}
 
+/*--------------Search action--------------------------*/
 .search text-shadow{
     background-color: #38A18C;
 }
 
-
+/*---------Card for the member list--------------------*/
 .row card-panel {
     width: 200px;
     display: flex;
@@ -35,6 +43,7 @@ flashes h4 {
     padding:80px;
 }
 
+/* ---------card-img for the boargames main page----------*/
 .card .card-image .card-title{
     background-color:none;
     font-weight: bold;
@@ -45,10 +54,7 @@ flashes h4 {
   align-content: center;
   padding: 40px; 
 }
-.card .card-action{
-    background-color: #117A65;
-}
-
+/*----------text under img in boardgames-----------------*/
 .card .card-content p{
     border-radius: 0 0 2px 2px;
     padding-left: 15px;
@@ -58,13 +64,23 @@ flashes h4 {
     font-size: larger;
 }
 
+/* link in boardgames*/
+.card .card-action{
+    background-color: #117A65;
+}
+
+
 .btn-small {
     margin:5px;
 }
 
-footer{
-  margin:15px;  
-  padding:20px;
+/* ------fixed footer modified from w3schools------*/
+.footer{
+  position:fixed;
+  left:0;
+  bottom:0;
+  padding:6px;
+  width: 100%;
   background-color: #117A65;
   color:white;  
 }

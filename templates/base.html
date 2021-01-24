@@ -39,7 +39,7 @@
                 </nav>
             
             <!--mobile sidenav-->
-            <!--for the mobile collapsible menu, jquery in script.js  -->
+            <!--for the mobile collapsible menu from materialize, jquery in script.js  -->
             <ul class="sidenav" id="mobile-demo">
                 <li><a href="{{ url_for('get_boardgames') }}">Home</a></li>
                 <li><a href="{{ url_for('about') }}">About</a></li>
@@ -79,8 +79,9 @@
     <footer>
     <div class="footer">
             <div class="container">
-            © Boardgames for two
-            <a class="grey-text text-lighten-4 right" href="#!">Contact: boardgames@example.com</a>
+            <div class="grey-text text-lighten-4 left">© Boardgames for two</div>
+            <!----feature left to add a link to mail-->  
+            <a class="grey-text text-lighten-4 right">Contact: boardgames@example.com</a>
             </div>
           </div>
     </footer>
