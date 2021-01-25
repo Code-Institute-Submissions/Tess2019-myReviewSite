@@ -1,5 +1,9 @@
 html{
-    font-family: 'Merriweather', serif; 
+    font-family: 'Merriweather', serif;    
+}
+body{
+ position: relative;
+ min-height: 100vh;
 }
 
 /*---------------Navbar------------------------------*/
@@ -19,7 +23,6 @@ nav .brand-logo {
 flashes h4 {
     line-height: 2;
 }
-
 
 /*--------------Search action--------------------------*/
 .search text-shadow{
@@ -88,13 +91,23 @@ flashes h4 {
     padding:80px;
 }
 
-/* ------fixed footer modified from w3schools------*/
+.row-about{
+    background: #20977F;
+    background: -webkit-linear-gradient(top, #20977F, #A7F2D5);
+    background: -moz-linear-gradient(top, #20977F, #A7F2D5);
+    background: linear-gradient(to bottom, #20977F, #A7F2D5);
+    padding:40px;
+}
+.endtext-boardgame{
+    padding:40px;
+}
+
+/* ------fixed footer form ------*/
 .footer{
-  display: flex;
-  left:0;
-  padding-bottom: 16px;
-  padding-top: 16px;
+  position: absolute;
+  bottom:0;
   width: 100%;
+  height: 2,5rem;
   background-color: #117A65;
   color:white;  
 }

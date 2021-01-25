@@ -54,7 +54,7 @@ def register():
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
-        flash("Register successful!")
+        flash("Register successful! Now you can add your game!")
         return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html")
     # after page reload the new user register in mongodb
