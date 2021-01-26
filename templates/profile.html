@@ -1,5 +1,8 @@
 {% extends "base.html" %}
-{% block content %}               
+{% block content %}  
+
+<!------------------------------------User Profile------------------------------------------->
+
                     <!-- use curlybrackets to get username's name from app.py and db-->
                 <h3 class="center-align teal-text">{{username}}'s Profile</h3>
                   <!-- <i class="fas fa-user-circle large teal-text"></i> additional features-->
@@ -16,6 +19,7 @@
                                 <p><em>by:{{ game.created_by }}</em></p> 
                             </div> 
                             
+                            <!------------------------------------Delete and Edit buttons------------------------------------------->
                                 <div class="row">
                                     <div class="col s12 ">
                                         <!--show edit button if logged in-->

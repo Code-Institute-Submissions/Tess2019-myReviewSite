@@ -75,10 +75,8 @@ flashes h4 {
 .btn-small {
     margin:5px;
 }
-/*----------for the member list--------------------------*/
+/*---------- member list--------------------------*/
 .member-list-img {
-   /* background-image:url('/static/images/hexagon.jpeg');
-    background-size: 115%; */
 
     background-color:rgba(214, 224, 222, 0.6);
     
@@ -102,7 +100,7 @@ flashes h4 {
     padding:40px;
 }
 
-/* ------fixed footer form ------*/
+/* ------fixed footer ------*/
 .footer{
   position: absolute;
   bottom:0;
